@@ -12,10 +12,15 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button myButton;
+    private EditText num1;
+    private EditText num2;
+    private Button myButton,addbtn;
+    private TextView answer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,10 +36,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .setAction("Action", null).show();
             }
         });
-
-        myButton = findViewById(R.id.button2);
-        myButton.setOnClickListener(this);
-
+        answer= findViewById(R.id.textView);
+        addbtn = findViewById(R.id.button4);
+        num1 = findViewById(R.id.editText);
+        num2 = findViewById(R.id.editText2);
+        addbtn.setOnClickListener(this);
 
     }
 
@@ -64,6 +70,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if(v==myButton){
             Toast.makeText(this,"button2 clicked bro",Toast.LENGTH_LONG).show();
+        }
+        if(v==addbtn){
+            int num1 = Integer.parseInt(this.num1.getText().toString());
+            int num2 = Integer.parseInt(this.num2.getText().toString());
+            int answer = num1 + num2;
+            String an = "" + answer;
+            this.answer.setText(an);
         }
     }
 }
