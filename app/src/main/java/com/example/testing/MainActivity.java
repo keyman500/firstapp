@@ -77,6 +77,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             int answer = num1 + num2;
             String an = "" + answer;
             this.answer.setText(an);
+            String t = an + " is the answer";
+            Toast.makeText(this,t,Toast.LENGTH_LONG).show();
+
         }
     }
 }
